@@ -14,6 +14,7 @@
     --font-contact:#DCC8C1;
     --alert-color:#8EDAFC;
     --bars-color:#EAEAEA;
+    --sent-message-color:#D5F9BA;
 }
 
 /* typoghapy */
@@ -208,7 +209,49 @@ i{
     border-radius: 50%;
 }
 
+/* main */
 
+/* message board */
     
+.message-board{
+    background-color: aliceblue;
+    background-image: url(../img/mine.jpg);
 
+    padding: 3em 4em;
+}
+
+.message-row{
+    width: 100%;
+    /* debug */
+    border: 1px solid black;
+    margin-bottom: .4em;
+
+}
+
+.message{
+    padding: .7em .5em;
+    width: 40%;
+    background-color: yellow;
+    position: relative;
+    border-radius: 10px;
+    font-size: 90%;
+}
+
+.message .message-time{
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    font-size: 50%;
+    color: var(--font-contact);
+}
+
+.message-sent{
+    margin-left: auto;
+    background-color: var(--sent-message-color);
+}
+
+.message-received{
+    margin-right: auto;
+    background-color: white;
+}
 

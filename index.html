@@ -24,7 +24,7 @@
                         <div class="user-bar">
                             <div class="contact-user-container">
                                 <div class="contact-user-icon">
-                                    <img src="img/avatar_1.jpg" alt="">
+                                    <img src="img/avatar_io.jpg" alt="io">
                                 </div>
                                 <div class="contact-user-description">
                                     <h4>Manfre</h4>
@@ -65,10 +65,10 @@
                                 <div>
                                     <div class="contact-card" v-for="(element, index) in contacts">
                                         <div class="contact-icon">
-                                            <img src="img/avatar_1.jpg" alt="">
+                                            <img :src="`img/avatar${element.avatar}.jpg`" :alt="element.name">
                                         </div>
                                         <div class="contact-description">
-                                            <h4>Manfre</h4>
+                                            <h4>{{element.name}}</h4>
                                             <p class="font-color-2">Ultimo messagio</p>
                                         </div>
                                     </div>
@@ -100,7 +100,13 @@
                         </div>
                         <!-- message board -->
                         <div class="message-board">
-
+                            <!-- prova -->
+                            <div class="message-row" v-for="(messageElement, messageIndex) in contacts[0].messages">
+                                <div class="message" :class="(messageElement.status === 'received') ? 'message-received' : 'message-sent'">
+                                    <p>{{messageElement.message}}</p>
+                                    <p class="message-time">10:20</p>
+                                </div>
+                            </div>
                         </div>
                         
                         <!-- message writer -->
