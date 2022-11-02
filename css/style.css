@@ -6,7 +6,14 @@
 
 /* variables */
 :root{
+    /* size */
     --bar-length:100px;
+    /* color */
+    --icon-color1:#B1B1B1;
+    --font-color:#787B8B;
+    --font-contact:#DCC8C1;
+    --alert-color:#8EDAFC;
+    --bars-color:#EAEAEA;
 }
 
 /* typoghapy */
@@ -18,8 +25,24 @@ html{
 img{
     width:100%;
 }
-/* color and background */
 
+i{
+    margin: 0 .2em;
+}
+/* color and background */
+.font-color-1{
+    color: var(--font-color);
+    font-size: 80%;
+}
+
+.font-color-2{
+    color: var(--font-contact);
+    font-size: 80%;
+}
+
+.icon-color1{
+    color: var(--icon-color1);
+}
 /* spacing */
 
 /* layout */
@@ -50,14 +73,12 @@ img{
 
 /* sidebar layout */
 #sidebar{
-    width: 40%;
+    width: 30%;
     height: 100%;
-    /* debug */
-    background-color: yellow;
 }
 /* main layout */
 #messages-section{
-    width: 60%;
+    width: 70%;
     height: 100%;
 }
 
@@ -67,8 +88,7 @@ img{
     height: calc(100% - (var(--bar-length) * 2));
     overflow-y: scroll;
     overflow-x: auto;
-    /* debug */
-    background-color: brown;
+    background-color: white;
 }
 
 #sidebar .user-bar,
@@ -76,21 +96,25 @@ img{
 #messages-section .contact-bar,
 #messages-section .message-writer{
  height: var(--bar-length);
+ background-color: var(--bars-color)
+
 }
 
 
-/* sidebar - main  */
+/* sidebar - main - top*/
 
-
-#sidebar .user-bar,
-#messages-section .contact-bar{
+ .user-bar,
+ .contact-bar,
+ .contact-card{
     padding: 1em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
 }
 
 .contact-user-container{
-    height: 100%;
+    height: 80%;
     
     display: flex;
     align-items: center;
@@ -109,7 +133,82 @@ img{
     border-radius: 50%;
 }
 
+/* mute alert */
+
+#sidebar .mute-alerts{
+    padding: 1.4em;
+    background-color: var(--alert-color);
+}
+
+.mute-alerts .contact-user-container {
+    height: 100%;
+    
+}
+
+.mute-alerts .contact-user-container .contact-user-icon{
+    height: 60px;
+    width: 60px;
+    background-color: white;
+    position: relative;
+}
+
+.mute-alerts .contact-user-container .contact-user-icon span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 150%;
+    color: var(--alert-color);
+}
+
+/* sidebar search input */
+.search-container{
+    height: 40px;
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.search-container div:first-child{
+    padding: 0 2em;
+}
+
+.search-container input{
+    height: 80%;
+    width: 80%;
+
+    border: none;
+}
+.search-container input:focus{
+    outline: none;
+}
+
+/* sidebar-contacts */
+.contacts{
+    width: 100%;
+}
+
+.contact-card{
+    width: 100%;
+    height: 90px;
+    border-bottom: var(--font-contact) 1px solid;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1em;   
+}
+
+.contact-icon{
+    height: 80%;
+}
+.contact-icon img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 
 
+    
 
 
