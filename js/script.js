@@ -1,6 +1,6 @@
-const {CreateApp} = Vue
+const {createApp} = Vue
 
-CreateApp ({
+createApp ({
     data : function(){
         return {
             contacts: [
@@ -172,3 +172,4 @@ CreateApp ({
 
     }
 }).mount("#app")
+
