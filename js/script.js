@@ -14,6 +14,7 @@ createApp ({
                 message:'okok',
                 status:'received'
             },
+            searchResult:'',
             contacts: [
                 {
                     name: 'Michele',
@@ -197,4 +198,3 @@ createApp ({
         }
     }
 }).mount("#app")
-
