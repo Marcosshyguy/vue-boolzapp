@@ -57,18 +57,18 @@
                                 <div class="icon-color1">
                                 <span><i class="fa-solid fa-magnifying-glass"></i></span>
                                 </div>
-                                <label for="filter-contacts"></label>
-                                <input type="text" id="filter-contacts" placeholder="cerca contatti">
+                                <label for="search-contacts"></label>
+                                <input type="text" id="search-contacts" placeholder="cerca contatti">
                             </div>
                             <!-- contact -->
                             <div class="contacts">
                                 <div>
-                                    <div class="contact-card" v-for="(element, index) in contacts">
+                                    <div class="contact-card" v-for="(contact, contactIndex) in contacts" @click="currentPosition(contactIndex)" :class="(messagePosition === contactIndex) ? 'contact-card-selected' : ''">
                                         <div class="contact-icon">
-                                            <img :src="`img/avatar${element.avatar}.jpg`" :alt="element.name">
+                                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                         </div>
                                         <div class="contact-description">
-                                            <h4>{{element.name}}</h4>
+                                            <h4>{{contact.name}}</h4>
                                             <p class="font-color-2">Ultimo messagio</p>
                                         </div>
                                     </div>

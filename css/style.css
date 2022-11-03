@@ -16,6 +16,7 @@
     --alert-color:#8EDAFC;
     --bars-color:#EAEAEA;
     --sent-message-color:#D5F9BA;
+    --selected-card-bg:#E9EBEB;
 }
 
 /* typoghapy */
@@ -199,6 +200,10 @@ input:focus{
     display: flex;
     justify-content: flex-start;
     gap: 1em;   
+}
+
+.contact-card-selected{
+    background-color: var(--selected-card-bg);
 }
 
 .contact-icon{

@@ -171,6 +171,12 @@ createApp ({
     },
     created(){
 
+    },
+    methods :{
+        currentPosition (currentiIndex){
+            
+            this.messagePosition = currentiIndex
+        }
     }
 }).mount("#app")
 
