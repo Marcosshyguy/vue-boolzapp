@@ -9,6 +9,11 @@ createApp ({
                 message:'',
                 status:'sent'
             },
+            newMessageReceived :{
+                date:'',
+                message:'okok',
+                status:'received'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -182,9 +187,13 @@ createApp ({
             
             this.messagePosition = currentiIndex
         },
+        // this function allows you to send message to the current contact
         sendMessage (){
             this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
-            this.newMessageSent.message = ''
+            this.newMessageSent.message = '';
+            setTimeout (() => {
+                this.contacts[this.messagePosition].messages.push({...this.newMessageReceived})
+            },1000);
         }
     }
 }).mount("#app")
