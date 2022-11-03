@@ -7,9 +7,10 @@
 /* variables */
 :root{
     /* size */
-    --bar-length:100px;
+    --bar-length:80px;
     /* color */
     --icon-color1:#B1B1B1;
+    --icon-color2:#6B7376;
     --font-color:#787B8B;
     --font-contact:#DCC8C1;
     --alert-color:#8EDAFC;
@@ -181,7 +182,8 @@ i{
 
     border: none;
 }
-.search-container input:focus{
+
+input:focus{
     outline: none;
 }
 
@@ -222,8 +224,6 @@ i{
 
 .message-row{
     width: 100%;
-    /* debug */
-    border: 1px solid black;
     margin-bottom: .4em;
 
 }
@@ -255,3 +255,32 @@ i{
     background-color: white;
 }
 
+
+/* writer bar */
+
+.message-writer{
+    padding: .5em 1em;
+    display: flex;
+    align-items: center;
+}
+
+.writer-container{
+    width: 80%;
+    height: 90%;
+    padding: 0 1rem;
+    background-color: white;
+}
+
+.writer-container input{
+    width:100%;
+    height: 100%;
+    border: none;
+}
+
+
+.write-icon{
+    width: 10%;
+    font-size: 140%;
+    text-align: center;
+    color: var(--icon-color2);
+}

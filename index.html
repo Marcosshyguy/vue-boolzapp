@@ -27,7 +27,7 @@
                                     <img src="img/avatar_io.jpg" alt="io">
                                 </div>
                                 <div class="contact-user-description">
-                                    <h4>Manfre</h4>
+                                    <h4>Marco</h4>
                                 </div>
                             </div>
                             <div class="setting-icons icon-color1">
@@ -85,10 +85,10 @@
                         <div class="contact-bar">
                             <div class="contact-user-container">
                                 <div class="contact-user-icon">
-                                    <img src="img/avatar_1.jpg" alt="">
+                                    <img :src="`img/avatar${contacts[messagePosition].avatar}.jpg`" alt="">
                                 </div>
                                 <div class="contact-user-description">
-                                    <h4>Manfre</h4>
+                                    <h4>{{contacts[messagePosition].name}}</h4>
                                     <p class="font-color-1">Ultimo accesso</p>
                                 </div>
                             </div>
@@ -100,8 +100,7 @@
                         </div>
                         <!-- message board -->
                         <div class="message-board">
-                            <!-- prova -->
-                            <div class="message-row" v-for="(messageElement, messageIndex) in contacts[0].messages">
+                            <div class="message-row" v-for="(messageElement, messageIndex) in contacts[messagePosition].messages">
                                 <div class="message" :class="(messageElement.status === 'received') ? 'message-received' : 'message-sent'">
                                     <p>{{messageElement.message}}</p>
                                     <p class="message-time">10:20</p>
@@ -111,7 +110,16 @@
                         
                         <!-- message writer -->
                         <div class="message-writer">
-
+                            <div class="write-icon">
+                                <span><i class="fa-regular fa-face-smile"></i></span>
+                            </div>
+                            <div class="writer-container">
+                                <label for="write-message"></label>
+                                <input type="text" id="write-message " placeholder="Scrivi messaggio...">
+                            </div>
+                            <div class="write-icon">
+                                <span><i class="fa-solid fa-microphone"></i></span>
+                            </div>
                         </div>
                     
                 </main>
