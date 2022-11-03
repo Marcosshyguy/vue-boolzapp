@@ -4,6 +4,11 @@ createApp ({
     data : function(){
         return {
             messagePosition:0,
+            newMessageSent:{
+                date:'',
+                message:'',
+                status:'sent'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -176,6 +181,10 @@ createApp ({
         currentPosition (currentiIndex){
             
             this.messagePosition = currentiIndex
+        },
+        sendMessage (){
+            this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
+            this.newMessageSent.message = ''
         }
     }
 }).mount("#app")

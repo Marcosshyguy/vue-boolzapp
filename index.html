@@ -115,7 +115,7 @@
                             </div>
                             <div class="writer-container">
                                 <label for="write-message"></label>
-                                <input type="text" id="write-message " placeholder="Scrivi messaggio...">
+                                <input type="text" id="write-message " placeholder="Scrivi messaggio..." v-model.trim="newMessageSent.message" @keyup.enter="sendMessage">
                             </div>
                             <div class="write-icon">
                                 <span><i class="fa-solid fa-microphone"></i></span>
