@@ -1,18 +1,22 @@
 const {createApp} = Vue
+const dateTime = luxon.DateTime;
 
 createApp ({
     data : function(){
         return {
+            now:"",
             messagePosition:0,
             newMessageSent:{
                 date:'',
                 message:'',
-                status:'sent'
+                status:'sent',
+                time: ''
             },
             newMessageReceived :{
                 date:'',
                 message:'okok',
-                status:'received'
+                status:'received',
+                time: ''
             },
             searchResult:'',
             contacts: [
@@ -181,7 +185,8 @@ createApp ({
         }
     },
     created(){
-
+        const now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
+        console.log(now)
     },
     methods :{
         currentPosition (currentiIndex){
@@ -190,9 +195,13 @@ createApp ({
         },
         // this function allows you to send message to the current contact
         sendMessage (){
+            this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
+            //  console.log(now.typeof)
+            this.newMessageSent.time = this.now.substring(11, 16);
             this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';
             setTimeout (() => {
+                this.newMessageReceived.time = this.now.substring(11, 16);
                 this.contacts[this.messagePosition].messages.push({...this.newMessageReceived})
             },1000);
         }
