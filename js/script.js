@@ -210,21 +210,20 @@ createApp ({
         },
         filterContact(){
             // con keyup su search bar senza tasti specifici in modo da dare 'linput di click ad ogni tasto premuto'
-            if(this.searchResult !== ''){
-                if(this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === true){
-                    this.contacts[0].visible = false;
-                }else if (this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
-                    this.contacts[0].visible = true;
+            for(let i = 0; i < this.contacts.length;i++){
+                const friend = this.contacts[i];
+                
+                if(this.searchResult.length === 0){
+                    friend.visible = true;
+                }else{
+                    if(friend.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === true){
+                        friend.visible = false;
+                    }else if (friend.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
+                        friend.visible = true;
+                    }
                 }
-                else if(this.searchResult.length === 0){
-                    this.contacts[0].visible = true;
-                }
-    
-                // if(this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
-                //     this.contacts[0].visible = true;
-                // }
-
             }
+            
             // prendo il valore v-model e lo confronto con i contatti
             // convertire il valore digitato a to lowercase
             // se il nome dei contatti include le lettere quello di digitato in v-model allora setto a false quelli che non corrispondono 
