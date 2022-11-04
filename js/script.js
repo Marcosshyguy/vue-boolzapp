@@ -217,13 +217,13 @@ createApp ({
                     friend.visible = true;
                 }else{
                     if(friend.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === true){
-                        friend.visible = false;
-                    }else if (friend.name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
                         friend.visible = true;
+                    }else{
+                        friend.visible = false;
                     }
                 }
             }
-            
+
             // prendo il valore v-model e lo confronto con i contatti
             // convertire il valore digitato a to lowercase
             // se il nome dei contatti include le lettere quello di digitato in v-model allora setto a false quelli che non corrispondono 
