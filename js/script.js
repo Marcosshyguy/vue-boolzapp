@@ -186,8 +186,6 @@ createApp ({
         }
     },
     created(){
-        const now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
-        console.log(now)
     },
     methods :{
         currentPosition (currentiIndex){
@@ -195,6 +193,8 @@ createApp ({
         },
         // this function allows you to send message to the current contact
         sendMessage (){
+            // add botMessagePosition in order to at every click we want to save the position of messagePosition
+            // and avoid  the answer message is printed in another contatc board if we change it
             this.botMessagePosition = this.messagePosition;
             this.setTime()
             this.newMessageSent.date = this.now;
@@ -207,6 +207,22 @@ createApp ({
         },
         setTime(){
             this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
+        },
+        filterContact(){
+            // con keyup su search bar senza tasti specifici in modo da dare 'linput di click ad ogni tasto premuto'
+            if(this.contacts[0].name.toLowerCase().includes(this.searchResult.toLowerCase()) === true){
+                this.contacts[0].visible = false;
+            }else{
+                this.contacts[0].visible = true;
+            }
+
+
+            // prendo il valore v-model e lo confronto con i contatti
+            // convertire il valore digitato a to lowercase
+            // se il nome dei contatti include le lettere quello di digitato in v-model allora setto a false quelli che non corrispondono 
+            // per soddisfare questa condizione dovrò aggiungere un if ai contatti generati con for per determinare se il loro valore è true o false
         }
     }
 }).mount("#app")
+
+

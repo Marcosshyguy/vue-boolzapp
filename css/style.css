@@ -235,7 +235,8 @@ input:focus{
 
 .message{
     padding: .7em .5em;
-    width: 40%;
+    max-width: 400px;
+    width: 300px;
     background-color: yellow;
     position: relative;
     border-radius: 10px;

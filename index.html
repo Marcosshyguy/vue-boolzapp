@@ -53,18 +53,18 @@
                         
                         <!-- sidebar contacts -->
                         <div class="sidebar-contacts">
-                            <!-- search input -->
+                            <!-- search input bar -->
                             <div class="search-container">
                                 <div class="icon-color1">
                                 <span><i class="fa-solid fa-magnifying-glass"></i></span>
                                 </div>
                                 <label for="search-contacts"></label>
-                                <input type="text" id="search-contacts" placeholder="cerca contatti" v-model="searchResult">
+                                <input type="text" id="search-contacts" placeholder="cerca contatti" v-model="searchResult" @keyup="filterContact">
                             </div>
                             <!-- contact -->
                             <div class="contacts">
-                                <div>
-                                    <div class="contact-card" v-for="(contact, contactIndex) in contacts" @click="currentPosition(contactIndex)" :class="(messagePosition === contactIndex) ? 'contact-card-selected' : ''">
+                                <div v-for="(contact, contactIndex) in contacts">
+                                    <div class="contact-card"  @click="currentPosition(contactIndex)" :class="(messagePosition === contactIndex) ? 'contact-card-selected' : ''" v-if="contact.visible === false">
                                         <div class="contact-icon">
                                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                         </div>
