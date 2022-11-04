@@ -213,7 +213,10 @@ createApp ({
             if(this.searchResult !== ''){
                 if(this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === true){
                     this.contacts[0].visible = false;
-                }else{
+                }else if (this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
+                    this.contacts[0].visible = true;
+                }
+                else if(this.searchResult.length === 0){
                     this.contacts[0].visible = true;
                 }
     
