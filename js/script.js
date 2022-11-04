@@ -9,14 +9,14 @@ createApp ({
             newMessageSent:{
                 date:'',
                 message:'',
-                status:'sent',
-                time: ''
+                status:'sent'
+                
             },
             newMessageReceived :{
                 date:'',
                 message:'okok',
-                status:'received',
-                time: ''
+                status:'received'
+                
             },
             searchResult:'',
             contacts: [
@@ -196,12 +196,11 @@ createApp ({
         // this function allows you to send message to the current contact
         sendMessage (){
             this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
-            //  console.log(now.typeof)
-            this.newMessageSent.time = this.now.substring(11, 16);
+            this.newMessageSent.date = this.now;
             this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';
             setTimeout (() => {
-                this.newMessageReceived.time = this.now.substring(11, 16);
+                this.newMessageReceived.date = this.now;
                 this.contacts[this.messagePosition].messages.push({...this.newMessageReceived})
             },1000);
         }
