@@ -6,6 +6,7 @@ createApp ({
         return {
             now:"",
             messagePosition:0,
+            botMessagePosition:0,
             newMessageSent:{
                 date:'',
                 message:'',
@@ -190,18 +191,18 @@ createApp ({
     },
     methods :{
         currentPosition (currentiIndex){
-            
             this.messagePosition = currentiIndex
         },
         // this function allows you to send message to the current contact
         sendMessage (){
+            this.botMessagePosition = this.messagePosition;
             this.setTime()
             this.newMessageSent.date = this.now;
-            this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
+            this.contacts[this.botMessagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';
             setTimeout (() => {
                 this.newMessageReceived.date = this.now;
-                this.contacts[this.messagePosition].messages.push({...this.newMessageReceived})
+                this.contacts[this.botMessagePosition].messages.push({...this.newMessageReceived})
             },1000);
         },
         setTime(){
