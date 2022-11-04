@@ -195,7 +195,7 @@ createApp ({
         },
         // this function allows you to send message to the current contact
         sendMessage (){
-            this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
+            this.setTime()
             this.newMessageSent.date = this.now;
             this.contacts[this.messagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';
@@ -203,6 +203,9 @@ createApp ({
                 this.newMessageReceived.date = this.now;
                 this.contacts[this.messagePosition].messages.push({...this.newMessageReceived})
             },1000);
+        },
+        setTime(){
+            this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
         }
     }
 }).mount("#app")
