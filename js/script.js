@@ -211,15 +211,17 @@ createApp ({
         filterContact(){
             // con keyup su search bar senza tasti specifici in modo da dare 'linput di click ad ogni tasto premuto'
             if(this.searchResult !== ''){
-                if(this.contacts[0].name.toLowerCase().includes(this.searchResult.toLowerCase()) === true){
+                if(this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === true){
                     this.contacts[0].visible = false;
-                }
-    
-                if(this.contacts[0].name.toLowerCase().includes(this.searchResult.toLowerCase()) === false){
+                }else{
                     this.contacts[0].visible = true;
                 }
-            }
+    
+                // if(this.contacts[0].name.toLowerCase().startsWith(this.searchResult.toLowerCase()) === false){
+                //     this.contacts[0].visible = true;
+                // }
 
+            }
             // prendo il valore v-model e lo confronto con i contatti
             // convertire il valore digitato a to lowercase
             // se il nome dei contatti include le lettere quello di digitato in v-model allora setto a false quelli che non corrispondono 
