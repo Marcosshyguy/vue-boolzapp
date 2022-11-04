@@ -64,7 +64,7 @@
                             <!-- contact -->
                             <div class="contacts">
                                 <div v-for="(contact, contactIndex) in contacts">
-                                    <div class="contact-card"  @click="currentPosition(contactIndex)" :class="(messagePosition === contactIndex) ? 'contact-card-selected' : ''" v-if="contact.visible === false">
+                                    <div class="contact-card"  @click="currentPosition(contactIndex)" :class="(messagePosition === contactIndex) ? 'contact-card-selected' : ''" v-if="contact.visible === true">
                                         <div class="contact-icon">
                                             <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                         </div>
