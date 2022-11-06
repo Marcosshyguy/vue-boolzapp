@@ -301,14 +301,38 @@ input:focus{
     height: 90%;
     padding: 0 1rem;
     background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+
 }
 
 .writer-container input{
-    width:100%;
+    width:90%;
     height: 100%;
     border: none;
 }
 
+.send-audio,
+.send-message{
+    width: 10%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    color: var(--icon-color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
+}
+
+.send-message span:hover{
+    cursor: pointer;
+    opacity: 80%;
+}
+.send-message span:active{
+    opacity: 50%;
+}
 
 .write-icon{
     width: 10%;

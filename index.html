@@ -116,10 +116,16 @@
                             <div class="writer-container">
                                 <label for="write-message"></label>
                                 <input type="text" id="write-message " placeholder="Scrivi messaggio..." v-model.trim="newMessageSent.message" @keyup.enter="sendMessage">
+                                <div class="send-audio" v-if="newMessageSent.message === ''">
+                                    <span><i class="fa-solid fa-microphone"></i></span>
+                                </div>
+                                <div class="send-message" v-else @click="sendMessage">
+                                    <span><i class="fa-solid fa-paper-plane"></i></span>
+                                </div>
                             </div>
-                            <div class="write-icon">
+                            <!-- <div class="write-icon">
                                 <span><i class="fa-solid fa-microphone"></i></span>
-                            </div>
+                            </div> -->
                         </div>
                     
                 </main>
