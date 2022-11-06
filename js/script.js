@@ -198,7 +198,6 @@ createApp ({
             // and avoid  the answer message is printed in another contatc board if we change it
             this.botMessagePosition = this.messagePosition;
             this.setTime()
-            
             this.newMessageSent.date = this.now;
             this.contacts[this.botMessagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';

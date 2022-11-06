@@ -50,17 +50,16 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- search input bar -->
+                        <div class="search-container">
+                            <label for="search-contacts" class="icon-color1">
+                            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                            </label>
+                            <input type="text" id="search-contacts" placeholder="cerca contatti" v-model="searchResult" @keyup="filterContact">
+                        </div>
                         
                         <!-- sidebar contacts -->
                         <div class="sidebar-contacts">
-                            <!-- search input bar -->
-                            <div class="search-container">
-                                <div class="icon-color1">
-                                <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                                </div>
-                                <label for="search-contacts"></label>
-                                <input type="text" id="search-contacts" placeholder="cerca contatti" v-model="searchResult" @keyup="filterContact">
-                            </div>
                             <!-- contact -->
                             <div class="contacts">
                                 <div v-for="(contact, contactIndex) in contacts">
