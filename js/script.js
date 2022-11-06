@@ -4,6 +4,7 @@ const dateTime = luxon.DateTime;
 createApp ({
     data : function(){
         return {
+            answers:["Okok", "Ciao Ciao", "Dai va bene","Ma va?", "Ok","Ora non posso ti chiamo più tardi"],
             now:"",
             messagePosition:0,
             botMessagePosition:0,
@@ -15,7 +16,7 @@ createApp ({
             },
             newMessageReceived :{
                 date:'',
-                message:'okok',
+                message:'',
                 status:'received'
                 
             },
@@ -197,10 +198,12 @@ createApp ({
             // and avoid  the answer message is printed in another contatc board if we change it
             this.botMessagePosition = this.messagePosition;
             this.setTime()
+            
             this.newMessageSent.date = this.now;
             this.contacts[this.botMessagePosition].messages.push({...this.newMessageSent});
             this.newMessageSent.message = '';
             setTimeout (() => {
+                this.newMessageReceived.message = this.randomAnswer()
                 this.newMessageReceived.date = this.now;
                 this.contacts[this.botMessagePosition].messages.push({...this.newMessageReceived})
             },1000);
@@ -209,7 +212,6 @@ createApp ({
             this.now = dateTime.now().setLocale('it').toLocaleString(dateTime.DATETIME_SHORT_WITH_SECONDS);
         },
         filterContact(){
-            // con keyup su search bar senza tasti specifici in modo da dare 'linput di click ad ogni tasto premuto'
             for(let i = 0; i < this.contacts.length;i++){
                 const friend = this.contacts[i];
                 
@@ -223,11 +225,11 @@ createApp ({
                     }
                 }
             }
-
-            // prendo il valore v-model e lo confronto con i contatti
-            // convertire il valore digitato a to lowercase
-            // se il nome dei contatti include le lettere quello di digitato in v-model allora setto a false quelli che non corrispondono 
-            // per soddisfare questa condizione dovrò aggiungere un if ai contatti generati con for per determinare se il loro valore è true o false
+        },
+        randomAnswer(){
+                const randomNumber = Math.floor(Math.random() * this.answers.length);
+                console.log(randomNumber,this.answers[randomNumber])
+                return this.answers[randomNumber]
         }
     }
 }).mount("#app")
